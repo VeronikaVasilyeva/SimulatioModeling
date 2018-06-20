@@ -2,6 +2,7 @@ import argparse
 import os
 import shutil
 import time
+import numpy
 from queue import Queue
 
 #from file import
