@@ -5,7 +5,7 @@ import time
 import numpy
 from queue import Queue
 
-#from file import
+# from file import
 
 parser = argparse.ArgumentParser(description='PyTorch CelebA Training')
 parser.add_argument('-j', '--workers', default=16, type=int, metavar='N',
@@ -23,15 +23,16 @@ parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
 parser.add_argument('--end2end', action='store_true', \
                     help='if true, using end2end with dream block, else, using naive architecture')
 
-seed = 0                # начальное значение гсч
-appear_time = 0         # среднее время появления между заявками
-service_time = 0        # среднее время обслуживания
-loss_probability = 0    # коэффициент (вероятность) потерь
-len_queue = 0           # средняя длина очереди
-L_queue = 0             # ёмкость буфера
-model_time = 0          # абсолютное время жизни модели
-queue = Queue()         # буфер сообщений q.put('eat') print(q.get())
-message_number = 0      # количество сообщений в модели, переменная состояния
+seed = 0  # начальное значение гсч
+appear_time = 0  # среднее время появления между заявками
+service_time = 0  # среднее время обслуживания
+loss_probability = 0  # коэффициент (вероятность) потерь
+len_queue = 0  # средняя длина очереди
+L_queue = 0  # ёмкость буфера
+model_time = 0  # абсолютное время жизни модели
+queue = Queue()             # буфер сообщений q.put('eat') print(q.get())
+message_number = 0          # количество сообщений в модели, переменная состояния
+current_mess_number = 0     # текущее кол-во постопивших заявок
 
 def main():
     global args
@@ -39,7 +40,6 @@ def main():
 
     print('img_dir:', args.img_dir)
     print('end2end?:', args.end2end)
-
 
 
 if __name__ == '__main__':
